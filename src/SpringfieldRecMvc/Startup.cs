@@ -8,6 +8,7 @@ using HtmlTags;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +41,8 @@ namespace SpringfieldRecMvc
             services.AddHtmlTags(new TagConventions());
 
             services.AddMediatR(typeof(Startup));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             string databaseFile = Configuration["Data:DefaultConnection:Filename"];
             services.AddEntityFrameworkSqlite().AddDbContext<SpringfieldRecContext>(opt => opt.UseSqlite($"Filename={databaseFile}"));
