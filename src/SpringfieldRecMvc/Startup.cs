@@ -39,10 +39,6 @@ namespace SpringfieldRecMvc
 
             services.AddHtmlTags(new TagConventions());
 
-
-            //services.AddAutoMapper(typeof(Startup));
-            //Mapper.AssertConfigurationIsValid();
-
             services.AddMediatR(typeof(Startup));
 
             string databaseFile = Configuration["Data:DefaultConnection:Filename"];

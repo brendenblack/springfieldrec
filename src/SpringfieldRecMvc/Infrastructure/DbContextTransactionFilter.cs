@@ -17,6 +17,7 @@ namespace SpringfieldRecMvc.Infrastructure
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
+
             try
             {
                 _dbContext.BeginTransaction();
