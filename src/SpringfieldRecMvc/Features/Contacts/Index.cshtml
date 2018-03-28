@@ -1,0 +1,32 @@
+﻿@model SpringfieldRecMvc.Features.Contacts.Index.Model
+
+<div class="row">
+    <h1>Contacts</h1>
+</div>
+<div class="row">
+    <div class="alert alert-warning w-100" role="alert">
+        This page is intended for developmental purposes only. The contact information herein is intended to be exclusively dummy data.
+    </div>
+</div>
+<div class="row">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var member in Model.Members)
+{
+    <tr>
+        <td>@member.Name</td>
+        <td>@member.Email</td>
+        <td>@member.PhoneNumber</td>
+    </tr>
+}
+        </tbody>
+
+    </table>
+</div>

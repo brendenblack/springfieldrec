@@ -1,0 +1,43 @@
+﻿
+@{
+    @using SpringfieldRecMvc.Features
+    @model SpringfieldRecMvc.Features.Activities.Details.Model
+}
+
+<div class="row">
+    <h1 class="display-2">@Model.Name</h1>
+</div>
+<div class="row">
+    <div class="col-7">
+        
+        <div style="max-height: 400px; overflow: hidden;">
+            <img src="~/images/@Model.ImageUri" />
+        </div>
+        
+        <p class="lead mt-4">@Model.Description</p>
+    </div>
+    <div class="col-5">
+        <p>Sign up to be notified the next time this activity is available</p>
+
+        @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationDiv()
+
+        @Html.HiddenFor(m => m.Command.ActivityId)
+        @Html.FormBlock(m => m.Command.FirstName)
+        @Html.FormBlock(m => m.Command.LastName)
+        @Html.FormBlock(m => m.Command.EmailAddress)
+        @Html.FormBlock(m => m.Command.PhoneNumber)
+
+        <div class="form-group">
+
+                <input type="submit" value="Sign me up!" class="btn btn-primary" />
+   
+        </div>
+
+
+}
+    </div>
+</div>
